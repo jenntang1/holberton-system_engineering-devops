@@ -1,2 +1,2 @@
 #!/bin/bash
-find *.gif -type f -exec  basename {} .gif  \; | sort -fh
+find . -type f -iname "*.gif" -printf "%f\n" | sort -fh | tr -d "gif"
