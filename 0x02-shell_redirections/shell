@@ -1,4 +1,6 @@
 #!/bin/bash
+echo 'The files in this directory contains Shell I/O Redirections and filters weve learned.' >> README.md
+chmod u+x README.md
 echo '#!/bin/bash' >> 0-hello_world
 chmod u+x 0-hello_world
 echo '#!/bin/bash' >> 1-confused_smiley
