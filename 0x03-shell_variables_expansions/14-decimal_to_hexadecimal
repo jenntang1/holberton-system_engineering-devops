@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((10ox$DECIMAL))
+printf "%xf\n" "$DECIMAL"
