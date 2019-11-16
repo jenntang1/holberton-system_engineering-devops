@@ -4,8 +4,8 @@
 
 /**
  * *_memcpy - function that copies memory area
- * @dest: letters
- * @src: letters
+ * @dest: dest letters
+ * @src: src letters
  * @n: integers
  * Description: Copies n bytes from memory area src to dest
  * Return: Pointer to dest
