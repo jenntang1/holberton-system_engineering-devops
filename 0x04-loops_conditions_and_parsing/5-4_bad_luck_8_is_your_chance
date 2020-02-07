@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times but with "bad luck" and "good luck" replacements
 i=1
-while [ $i -lt 10 ]
+while [ $i -le 10 ]
 do
-	echo "Holberton School"
-	(( i++ ))
 	if [ $i -eq 4 ]
 	then
 		echo "bad luck"
 	elif [ $i -eq 8 ]
 	then
 		echo "good luck"
+	else
+		echo "Holberton School"
 	fi
+	(( i++ ))
 done
