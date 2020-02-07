@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is displaying "Holberton School" 10 times but with "bad luck" and "good luck" replacements
+# This script is marking the superstitious numbers of different countries
 i=1
 while [ $i -le 20 ]
 do
