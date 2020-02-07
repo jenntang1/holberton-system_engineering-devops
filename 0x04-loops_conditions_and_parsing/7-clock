@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is displaying "Holberton School" 10 times but with "bad luck" and "good luck" replacements
+# This script is displaying the hours and minutes of a clock
 hour=0
 while [ $hour -le 12 ]
 do
