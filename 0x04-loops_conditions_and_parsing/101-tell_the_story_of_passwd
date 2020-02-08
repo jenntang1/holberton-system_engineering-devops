@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script is using the content in the file /etc/passwd.
+file=/etc/passwd
+while IFS=: read -r uname1 ps2 uid3 gid4 info5 dir6 cmd7
+do
+	echo "The user $uname1 is part of the $gid4 gang, lives in $dir6 and rides $cmd7. $uid3's place is protected by the passcode $ps2, more info about the user here: $info5"
+done < $file
