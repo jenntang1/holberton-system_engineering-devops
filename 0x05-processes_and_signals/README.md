@@ -47,5 +47,8 @@ https://github.com/koalaman/shellcheck/wiki/Ignore
 6. Bash check if process is running or not on Linux / Unix  
 https://www.cyberciti.biz/faq/bash-check-if-process-is-running-or-notonlinuxunix/  
 
+7. Linux Signals  
+https://www.computerhope.com/unix/signals.htm  
+
 # Contributor #
 Jennifer Tang  
