@@ -50,5 +50,8 @@ https://www.cyberciti.biz/faq/bash-check-if-process-is-running-or-notonlinuxunix
 7. Linux Signals  
 https://www.computerhope.com/unix/signals.htm  
 
+8. Sending and Trapping Signals  
+https://mywiki.wooledge.org/SignalTrap  
+
 # Contributor #
 Jennifer Tang  
