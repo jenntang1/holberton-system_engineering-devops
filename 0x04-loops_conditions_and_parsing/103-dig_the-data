@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script is displaying the visitor IP and HTTP status code in order based on the number of requests made by an IP from a Apache log file.
+awk '{print ++i[$1] " " $1 " " $9}' apache-access.log | sort -nrk1
