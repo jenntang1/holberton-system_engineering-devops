@@ -11,21 +11,28 @@ int infinite_while(void);
  */
 int main(void)
 {
+	/* declare iteration variable */
+	int create = 0;
 	/* declare variable for child process */
 	pid_t child;
-	/* create child process */
-	child = fork();
-	/* if child process is a zombie, then print error msg */
-	if (child > 0)
+
+	while (create < 5)
 	{
-		fprintf(stderr, "Zombie process created, PID: %d\n", child);
-		exit(1);
+		create++;
+		/* create child process */
+		child = fork();
+		/* if child process is a zombie, then print error msg */
+		if (child > 0)
+		{
+			fprintf(stdout, "Zombie process created, PID: %d\n", child);
+		}
+		/* if child process is zero, then exit normally */
+		if (child == 0)
+		{
+			exit(0);
+		}
 	}
-	/* if child process is zero, then exit normally */
-	if (child == 0)
-	{
-		exit(0);
-	}
+	infinite_while();
 	return (0);
 }
 
