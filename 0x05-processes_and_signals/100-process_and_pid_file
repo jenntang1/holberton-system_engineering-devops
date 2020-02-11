@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # This script is displaying "To infinity and beyond" until SIGTERM in which it will be displaying "I hate the kill command" and SIGINT in which it will be displaying "Y U no love me?!"
 echo $BASHPID > /var/run/holbertonscript.pid
-trap 'rm -f /var/run/holbertonscript.pid; echo "I hate the kill command"' SIGTERM && trap 'rm -f /var/run/holbertonscript.pid; echo "Y U no love me?!"' SIGINT
+trap 'rm -f /var/run/holbertonscript.pid; echo "I hate the kill command"; exit' SIGTERM &&
+trap 'rm -f /var/run/holbertonscript.pid; echo "Y U no love me?!"; exit' SIGINT
 while true
 do
 	echo "To infinity and beyond"
