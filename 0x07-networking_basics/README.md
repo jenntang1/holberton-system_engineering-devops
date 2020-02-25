@@ -22,7 +22,7 @@ c. What is localhost?  Localhost means "this computer" which is the local device
 d. What is a subnet?  Subnet is a part of a larger network and shares the same IP address.  
 e. Why IPv6 was created?  IPv6 was created to handle the increasing demand of IP addresses.  
 
-4. TCP/UDP..
+4. TCP/UDP  
 a. What are the 2 mainly used data transfer protocols for IP (transfer level on the OSI schema)?  TCP stands for Transmission Control Protocol and UDP stands for User Datagram Protocol.  They both send bits of data in a packet over the Internet from one IP address to another.  
 b. What is the main difference between TCP and UDP?  TCP sends ordered packets and error checks them by having the recipient send a response to the sender that it received the packet.  If not, the sender will try to resend the packet.  UDP sends packets quicker because it doesn't handle error checks.  
 c. What is a port?  Port is a number that serves as a communication endpoint between two devices.  
