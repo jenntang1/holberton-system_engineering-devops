@@ -1,4 +1,4 @@
-# General #
+# Overview #
 The program codes contained in this directory is to help with learning and understanding configuration management using Puppet.  
 
 ## Resources ##
