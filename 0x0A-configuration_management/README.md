@@ -8,5 +8,8 @@ https://www.digitalocean.com/community/tutorials/an-introduction-to-configuratio
 1. Puppet  
 https://puppet.com/
 
+2. Puppet CookBook  
+https://www.puppetcookbook.com  
+
 ## Contributor ##
 Jennifer Tang  
