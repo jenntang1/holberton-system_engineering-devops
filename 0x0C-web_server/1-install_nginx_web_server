@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This bash script installs Nginx onto a web server.
+apt-get -y install nginx | curl 104.196.171.186/ | grep "Holberton School"
