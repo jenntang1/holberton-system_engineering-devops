@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This bash script installs Nginx onto a web server.
-apt-get update
-apt-get -y install nginx
+apt update
+apt -y install nginx
 ufw allow 'Nginx Full'
 echo 'Holberton School' | tee -a /var/www/html/index.nginx-debian.html
 service nginx start
