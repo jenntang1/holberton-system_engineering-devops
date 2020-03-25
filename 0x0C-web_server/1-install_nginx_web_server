@@ -2,6 +2,5 @@
 # This bash script installs Nginx onto a web server.
 apt-get -y update
 apt-get -y install nginx
-ufw allow 'Nginx Full'
 echo 'Holberton School' > /usr/share/nginx/html/index.html
 service nginx start
