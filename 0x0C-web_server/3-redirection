@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This bash script redirects a client to 301.
+apt update
+apt -y install nginx
+ufw allow 'Nginx Full'
+sed -i "s/.*/301 Moved Permanently/" /etc/nginx/sites-enabled/default
+service nginx start
