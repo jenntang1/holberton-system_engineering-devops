@@ -3,6 +3,5 @@
 apt update
 apt -y install nginx
 ufw allow 'Nginx Full'
-echo 'Holberton School for the win!' |
-tee -a /var/www/html/index.nginx-debian.html
+echo 'Holberton School for the win!' | tee -a /var/www/html/index.nginx-debian.html
 service nginx start
