@@ -3,5 +3,5 @@
 apt update
 apt -y install nginx
 ufw allow 'Nginx Full'
-sed -i "s/.*/301 Moved Permanently/" /etc/nginx/sites-enabled/default
+sed -i "s/200/301/" /etc/nginx/fastcgi_params
 service nginx restart
