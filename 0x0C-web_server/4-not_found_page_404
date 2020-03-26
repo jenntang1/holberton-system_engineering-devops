@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This bash script redirects a client to 404.
+apt update
+apt -y install nginx
+ufw allow 'Nginx Full'
+echo "Ceci n'est pas une page" >> /var/www/html/index.nginx-debian.html
+sed -i "s/200/404/" /etc/nginx/fastcgi_params
+service nginx restart
