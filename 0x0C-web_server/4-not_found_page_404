@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-# This bash script redirects a client to 404.
-sudo apt update
-sudo apt -y install nginx
-sudo ufw allow 'Nginx Full'
-echo "Ceci n'est pas une page" >> /var/www/html/index.nginx-debian.html
-sed -i "s/200/404/" /etc/nginx/fastcgi_params
-service nginx restart
+# This bash script redirects client to 404.
+apt update
+apt -y install nginx
+ufw allow 'Nginx Full'
+echo 'Holberton School' | sudo tee /var/www/html/index.nginx-debian.html
+var="rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+sed -i "35i$var" /etc/nginx/sites-available/default
+echo "Ceci n\'est pas une page" | sudo tee /var/www/html/index.nginx-debian.html
+var="error_page 404 /xyz; location = /xyxfoo { root /usr/share/nginx/html; internal; }"
+sed -i "36i$var" /etc/nginx/sites-available/default
+service nginx start
