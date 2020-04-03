@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2154
+# This bash script configure web-02 to be identical to web-01
+sudo apt update
+sudo apt -y install nginx
+sudo ufw allow 'Nginx Full'
+var="add_header X-Served-By: 1039-web-01"
+sudo sed -i "50i$var" /etc/nginx/sites-available/default
+sudo service nginx start
