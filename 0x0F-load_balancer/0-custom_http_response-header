@@ -4,6 +4,6 @@
 sudo apt update
 sudo apt -y install nginx
 sudo ufw allow 'Nginx Full'
-var="add_header X-Served-By: $HOSTNAME"
+var="add_header X-Served-By: $hostname;"
 sudo sed -i "50i$var" /etc/nginx/sites-available/default
 sudo service nginx start
