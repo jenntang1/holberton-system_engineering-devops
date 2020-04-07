@@ -1,9 +1,24 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2154
+# Shellcheck disable=SC2154
 # This bash script configure web-02 to be identical to web-01
-sudo apt update
-sudo apt -y install nginx
-sudo ufw allow 'Nginx Full'
-var="add_header X-Served-By: $hostname;"
-sudo sed -i "50i$var" /etc/nginx/sites-available/default
+
+# Install Nginx
+sudo apt-get update
+sudo apt-get -y install nginx
+
+# Redirect 301
+sudo echo 'Holberton School for the win!' | sudo tee /var/www/html/index.nginx-debian.html
+var="rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+sudo sed -i "35i$var" /etc/nginx/sites-available/default
+
+# Custom 404
+sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+var2="error_page 404 /custom_404.html;\nlocation /custom_404.html {\nroot /var/www/html;\ninternal;\n}"
+sudo sed -i "36i$var2" /etc/nginx/sites-available/default
+
+# Custom Header
+var4="add_header X-Served-By $HOSTNAME;"
+sudo sed -i "41i$var4" /etc/nginx/sites-available/default
+
+# Start Nginx
 sudo service nginx start
