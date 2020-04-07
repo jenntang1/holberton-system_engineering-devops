@@ -1,11 +1,21 @@
 #!/usr/bin/env bash
 # This bash script redirects client to 404.
+
+# Install Nginx
 sudo apt-get update
 sudo apt-get -y install nginx
-echo 'Holberton School for the win!' | sudo tee /var/www/html/index.nginx-debian.html
+
+# Static Homepage
+sudo echo 'Holberton School for the win!' | sudo tee /var/www/html/index.nginx-debian.html
+
+# Redirect 301
 var="rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-sed -i "35i$var" /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+sudo sed -i "35i$var" /etc/nginx/sites-available/default
+
+# Custom 404
+sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
 var2="error_page 404 /custom_404.html;\nlocation /custom_404.html {\nroot /var/www/html;\ninternal;\n}"
-sed -i "36i$var2" /etc/nginx/sites-available/default
-service nginx start
+sudo sed -i "36i$var2" /etc/nginx/sites-available/default
+
+# Start Nginx
+sudo service nginx start
