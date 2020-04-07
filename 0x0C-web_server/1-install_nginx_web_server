@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # This bash script installs Nginx onto a web server.
+
+# Install Nginx
 sudo apt-get update
 sudo apt-get -y install nginx
-echo 'Holberton School for the win!' | sudo tee /var/www/html/index.nginx-debian.html
-service nginx start
+
+# Static Homepage
+sudo echo 'Holberton School for the win!' | sudo tee /var/www/html/index.nginx-debian.html
+
+# Start Nginx
+sudo service nginx start
