@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
 # This bash script redirects client to 301.
+
+# Install Nginx
 sudo apt-get update
 sudo apt-get -y install nginx
-echo 'Holberton School for the win!' | sudo tee /var/www/html/index.nginx-debian.html
+
+# Static Homepage
+sudo echo 'Holberton School for the win!' | sudo tee /var/www/html/index.nginx-debian.html
+
+# Redirect 301
 var="rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-sed -i "35i$var" /etc/nginx/sites-available/default
-service nginx start
+sudo sed -i "35i$var" /etc/nginx/sites-available/default
+
+# Start Nginx
+sudo service nginx start
