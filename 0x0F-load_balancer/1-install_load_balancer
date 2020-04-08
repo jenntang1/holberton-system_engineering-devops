@@ -10,7 +10,7 @@ sudo apt-get -y install haproxy=1.7.\*
 sudo echo "ENABLED=1" >> /etc/default/haproxy
 
 # Config with two web servers
-var5="\nfrontend http-in\n\tbind 54.90.111.241:80\n\tdefault_backend webservers\n\nbackend webservers\n\tbalance roundrobin\n\tserver 1039-web-01 104.196.171.186:80 check\n\tserver 1039-web-02 34.204.40.84:80 check"
+var5="\nfrontend http-in\n\tbind *:80\n\toption forwardfor\n\tdefault_backend webservers\n\nbackend webservers\n\tbalance roundrobin\n\tserver 1039-web-01 104.196.171.186:80 check\n\tserver 1039-web-02 34.204.40.84:80 check\n\t option httpchk"
 sudo echo $var5 >> /etc/haproxy/haproxy.cfg
 
 # Start HAproxy
