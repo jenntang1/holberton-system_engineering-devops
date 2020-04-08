@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Shellcheck disable=SC2086
+# This bash script outputs "The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]."
+
+if [ "$2" ]
+then
+	sub="$2"
+	dig $2.$1 +noall +answer | tail -n+4 > file.txt
+	echo | awk -v s=$sub '{print "The subdomain "s" is a "$4" record and points to "$5}' file.txt
+elif [ "$1" ]
+then
+	dig www.$1 +noall +answer | tail -n+4 > file2.txt
+	echo | awk '{print "The subdomain www is a "$4" record and points to "$5}' file2.txt
+	dig lb-01.$1 +noall +answer | tail -n+4 > file3.txt
+	echo | awk '{print "The subdomain lb-01 is a "$4" record and points to "$5}' file3.txt
+	dig web-01.$1 +noall +answer | tail -n+4 > file4.txt
+	echo | awk '{print "The subdomain web-01 is a "$4" record and points to "$5}' file4.txt
+	dig web-02.$1 +noall +answer | tail -n+4 > file5.txt
+	echo | awk '{print "The subdomain web-02 is a "$4" record and points to "$5}' file5.txt
+fi
