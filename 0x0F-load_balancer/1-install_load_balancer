@@ -9,29 +9,15 @@ sudo apt-get -y install nginx
 sudo service nginx start
 
 # Install HAproxy
-sudo apt-get -y install software-properties-common
-sudo add-apt-repository ppa:vbernat/haproxy-1.8
+sudo add-apt-repository -y ppa:vbernat/haproxy-1.8
 sudo apt-get update
-sudo apt-get -y install haproxy=1.8.\*
+sudo apt-get -y install haproxy
 
 # Config to manage via init script
 sudo echo "ENABLED=1" >> /etc/default/haproxy
 
 # Config with two web servers
-var5="frontend localnodes\n
-      bind 54.90.111.241:80\n
-      mode http\n
-      default_backend nodes\n
-
-      backend nodes\n
-          mode http\n
-          balance roundrobin\n
-          option forwardfor\n
-          http-request set-header X-Served-By: 03-web-01\n
-          http-request add-header X-Served-By: 03-web-02\n
-          option httpchk HEAD / HTTP/1.1\\r\\nHost:localhost\n
-          server 1039-web-01 104.196.171.186:80 check\n
-          server 1039-web-02 34.204.40.84:80 check"
+var5="frontend localnodes\n\tbind 54.90.111.241:80\n\tdefault_backend nodes\n\nbackend nodes\n\tbalance roundrobin\n\tserver 1039-web-01 104.196.171.186:80 check\n\tserver 1039-web-02 34.204.40.84:80 check"
 sudo echo $var5 >> /etc/haproxy/haproxy.cfg
 
 # Start HAproxy
