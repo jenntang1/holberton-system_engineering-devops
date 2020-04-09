@@ -5,8 +5,8 @@
 sudo sed -i "s/80/8080/g" /etc/nginx/sites-enabled/default
 
 # Changing permissions of Nginx config file
-sudo cd /etc/nginx/
-sudo chmod 777 nginx.conf
+sudo chown -R nginx /etc/nginx/
+sudo chmod 777 /etc/nginx/nginx.conf
 
 # Access Nginx as nginx
 sudo -u nginx nginx
