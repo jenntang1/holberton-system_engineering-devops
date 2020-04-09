@@ -36,19 +36,15 @@ defaults
 
 frontend http-in
         bind *:80
-        bind www.jenntang1.tech:443 ssl crt /etc/ssl/www.jenntang1.tech/www.jenntang1.tech.pem
-        option tcplog
-        mode tcp
-        option forwardfor
+        bind *:443 ssl crt /etc/ssl/jenntang1/www.jenntang1.tech.pem
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
         default_backend webservers
 
 backend letsencrypt-backend
-        server letsencrypt 127.0.0.1:8888
+        server letsencrypt 127.0.0.1:443
 
 backend webservers
-        mode http
         balance roundrobin
         server 1039-web-01 104.196.171.186:80 check
         server 1039-web-02 34.204.40.84:80 check
