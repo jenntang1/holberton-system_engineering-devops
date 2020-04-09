@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 # This bash script runs Nginx as user, nginx.
 
+# Kill all current processes
+pkill -f apache2
+
 # Nginx must be listening on all active IPs on port 8080
 sudo sed -i "s/80/8080/g" /etc/nginx/sites-enabled/default
 
 # Changing permissions of Nginx config file
-sudo chown -R nginx /etc/nginx/
+sudo chown -R nginx /etc/nginx
 sudo chmod 777 /etc/nginx/nginx.conf
 
 # Access Nginx as nginx
