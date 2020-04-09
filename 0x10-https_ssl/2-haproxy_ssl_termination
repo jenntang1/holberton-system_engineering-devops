@@ -36,8 +36,7 @@ defaults
 
 frontend http-in
         bind *:80
-        bind *:443 ssl crt /etc/ssl/jenntang1/www.jenntang1.tech.pem
-        redirect scheme https if !{ ssl_fc }
+        bind *:443 ssl crt /etc/ssl/www.jenntang1.tech/www.jenntang1.tech.pem
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
         default_backend webservers
@@ -49,4 +48,3 @@ backend webservers
         balance roundrobin
         server 1039-web-01 104.196.171.186:80 check
         server 1039-web-02 34.204.40.84:80 check
-        option httpchk
