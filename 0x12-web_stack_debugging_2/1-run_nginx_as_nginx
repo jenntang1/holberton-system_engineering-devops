@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # This bash script runs Nginx as Nginx.
-sudo sed -i 's/nobody;/nginx;/g' /etc/nginx/nginx.conf
+sudo adduser --disabled-password --gecos "" nginx
+sudo sed -i 's/www-data;/nginx;/g' /etc/nginx/nginx.conf
 sudo sed -i "s/80/8080/g" /etc/nginx/sites-enabled/default
-sudo service nginx restart
+sudo service nginx start
