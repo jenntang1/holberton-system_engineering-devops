@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # This bash script runs Nginx as Nginx.
+sudo service nginx start
 sudo -u nginx nginx
 sudo sed -i "s/80/8080/g" /etc/nginx/sites-enabled/default
-sudo service nginx start
+sudo service nginx restart
