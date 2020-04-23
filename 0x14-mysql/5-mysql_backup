@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This Bash script generates a MySQL dump and creates a compressed archive.
+
+if [ "$1" ]
+then
+	sudo mysqldump -uroot -p"$1" --all-databases --single-transaction --quick --lock-tables=false | sudo tee backup.sql
+	sudo tar -cf "$(date +%m-%d-%Y)".tar.gz backup.sql
+fi
