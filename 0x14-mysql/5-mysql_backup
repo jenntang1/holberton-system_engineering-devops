@@ -3,6 +3,6 @@
 
 if [ "$1" ]
 then
-	sudo mysqldump -uroot -p"$1" --all-databases --single-transaction --quick --lock-tables=false | sudo tee backup.sql
+	sudo mysqldump -uroot -p"$1" -A | sudo tee backup.sql > /dev/null
 	sudo tar -cf "$(date +%m-%d-%Y)".tar.gz backup.sql
 fi
