@@ -2,4 +2,4 @@
 # This Bash script generates a MySQL dump and creates a compressed archive.
 
 mysqldump -uroot -p"$1" -A > backup.sql
-sudo tar -cf "$(date +%m-%d-%Y)".tar.gz backup.sql
+tar -cf "$(date +%m-%d-%Y)".tar.gz backup.sql
