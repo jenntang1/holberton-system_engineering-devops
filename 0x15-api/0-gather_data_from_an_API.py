@@ -22,14 +22,14 @@ if __name__ == "__main__":
         completed = response.json()
         """ Get NUMBER_OF_DONE_TASKS """
         tasks_done = 0
+        tasks_list = []
         for key in completed:
             if key["completed"] is True:
                 tasks_done += 1
+                tasks_list.append(key["title"])
         """ Get TOTAL_NUMBER_OF_TASKS """
         tasks_total = 0
-        tasks_list = []
         for key in completed:
-            tasks_list.append(key["title"])
             if key["title"]:
                 tasks_total += 1
         print("Employee {} is done with tasks({}/{}):".format(empl_name,
