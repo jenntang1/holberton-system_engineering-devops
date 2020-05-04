@@ -11,20 +11,20 @@ An API (Application Program Interface) is used to expose data.
 2. What is a REST API?  
 An REST API (Representational State Transfer API) is a way for computers to communicate over HTTP.  It has four key characteristics:  
 
-a. Client-Server - HTTP request from one computer to another  
-b. Stateless - client request contains all information necessary to respond to a request  
-c. Cacheable - could be cacheable or not  
-d. Layered - requesting client doesn't need to know if it's communicating with the actual server or not  
+    a. Client-Server - HTTP request from one computer to another  
+    b. Stateless - client request contains all information necessary to respond to a request  
+    c. Cacheable - could be cacheable or not  
+    d. Layered - requesting client doesn't need to know if it's communicating with the actual server or not  
 
 3. What are microservices?  
 A microservice is a modernized form of API.  It has six key characteristics:  
 
-a. Multiple Components  
-b. Built for Businesses  
-c. Simple Routing  
-d. Decentralized  
-e. Failure Resistant  
-f. Evloutionary  
+    a. Multiple Components  
+    b. Built for Businesses  
+    c. Simple Routing  
+    d. Decentralized  
+    e. Failure Resistant  
+    f. Evloutionary  
 
 4. What is the CSV format?  
 CSV (Comma Separated Value) format is a compact way to store data.  
