@@ -8,7 +8,6 @@ import sys
 
 
 if __name__ == "__main__":
-
     """ Gets length of list of employees """
     empl_url = "https://jsonplaceholder.typicode.com/users"
     response = requests.get(empl_url)
