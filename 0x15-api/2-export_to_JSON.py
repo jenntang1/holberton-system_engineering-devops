@@ -46,7 +46,7 @@ if __name__ == "__main__":
         for element in tasks_list:
             print("\t {}".format(element))
 
-        """ Adds EMPLOYEE_NAME to the todos data """
+        """ Adds username to the todos data """
         todos_list = list(todos)
         name_pair = {"username": username}
         for dicts in todos_list:
