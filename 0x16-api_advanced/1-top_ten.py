@@ -7,12 +7,12 @@ import requests
 
 def top_ten(subreddit):
     """
-    Query for the titles of the first ten hot posts
+    Query for the titles of the top ten hot posts
     for a given subreddit
     Arg:
         subreddit: given subreddit
     Return:
-        total subscribers in integer
+        titles of the hot postsr
     """
 
     """ If no subreddit was given """
