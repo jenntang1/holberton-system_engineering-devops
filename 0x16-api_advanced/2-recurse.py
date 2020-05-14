@@ -5,7 +5,7 @@
 import requests
 
 
-def recurse(subreddit):
+def recurse(subreddit, hot_list=[], after=""):
     """
     Query for the titles of hot articles
     for a given subreddit
@@ -15,26 +15,31 @@ def recurse(subreddit):
         titles of hot articles
     """
 
-    """ If no subreddit was given """
-    if subreddit is None:
+    if after is None:
         return None
 
-    """ Implementing recursion """
-    return get_limit(subreddit)
+    elif subreddit is None:
+        return None
 
+    else:
+        try:
+            params = {"after": after, "limit": 20}
 
-def get_limit(subreddit):
-    """
-    Query for the entire json of a given subreddit
-    Arg:
-       subreddit: given subreddit
-    Return:
-        entire json
-    """
+            url = "https://www.reddit.com/r/{}/hot.json?".\
+                format(subreddit)
 
-    """ Retrieving json from Reddit API """
-    url = "https://www.reddit.com/r/{}/hot.json?limit=20&after_id=40".\
-        format(subreddit)
-    response = requests.get(url, headers={"User-agent": "please-thanks"}).\
-        json()
-    return response
+            response = requests.get(url,
+                                    params=params,
+                                    allow_redirects=False,
+                                    headers={"User-agent": "please-thanks"})
+
+            results = response.json()
+
+            for elmt_dicts in results["data"]["children"]:
+                for title in elmt_dicts["data"]["title"]:
+                    if title == "title":
+                        hot_list.append(title)
+
+            return recurse(subreddit, hot_list=[], after=results["data"])
+        except KeyError:
+            return None
