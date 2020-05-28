@@ -1,8 +1,6 @@
 # This manifest resolves heavy HTTP requests.
 
-include limits
-limits::limit { 'user limit':
-  domain => 'holberton',
-  item   => 'nofile',
-  value  => '50000'
+exec { 'change-os-configuration-for-holberton-user':
+  command  => 'sudo sed -i "s/nofile */nofile 50000/g" /etc/security/limits.conf',
+  provider => 'shell'
 }
